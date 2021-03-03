@@ -1,8 +1,8 @@
 # Super Components
 
-Give your Web Components modern day superpowers:
+Give your Web Components modern-day superpowers:
 
-- create stateful web components simular to [React](https://github.com/facebook/react/)
+- create stateful web components similar to [React](https://github.com/facebook/react/)
 - manage your components state with an [xstate](https://github.com/davidkpiano/xstate) inspired state machine
 - bring your own client-side rendering framework/library such as [lit-html](https://lit-html.polymer-project.org/guide)
 - supported in every major current browser
