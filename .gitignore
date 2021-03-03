@@ -1,0 +1,5 @@
+node_modules
+supercomponent.js
+supercomponent.d.ts
+supercomponent.min.js
+supercomponent.min.mjs
