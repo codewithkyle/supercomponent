@@ -14,9 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - initial `SuperComponent` class
     - finite state machine
     - state machine management method `trigger()`
-    - data model managment method `update()`
-    - connectedCallback alias method `connected()`
-    - disconnectedCallback alias method `disconnected()`
+    - data model management method `update()`
+    - `connectedCallback` alias method `connected()`
+    - `disconnectedCallback` alias method `disconnected()`
     - render method `render()`
 - changelog
 - basic readme documentation
