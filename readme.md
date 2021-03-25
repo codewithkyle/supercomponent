@@ -18,11 +18,11 @@ npm i -S @codewithkyle/supercomponent
 Install via CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@codewithkyle/supercomponent@1.0.0/supercomponent.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@codewithkyle/supercomponent@1/supercomponent.min.js"></script>
 ```
 
 ```javascript
-import SuperComponent from "https://cdn.jsdelivr.net/npm/@codewithkyle/supercomponent@1.0.0/supercomponent.min.mjs";
+import SuperComponent from "https://cdn.jsdelivr.net/npm/@codewithkyle/supercomponent@1/supercomponent.min.mjs";
 ```
 
 ## Usage
