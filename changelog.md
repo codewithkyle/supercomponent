@@ -33,6 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - changelog
 - basic readme documentation
 
-[Unreleased]: https://github.com/codewithkyle/pubsub/compare/v1.1.0...HEAD
-[1.1.0]: https://github.com/codewithkyle/pubsub/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/codewithkyle/pubsub/releases/tag/v1.0.0
+[Unreleased]: https://github.com/codewithkyle/supercomponent/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/codewithkyle/supercomponent/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/codewithkyle/supercomponent/releases/tag/v1.0.0
