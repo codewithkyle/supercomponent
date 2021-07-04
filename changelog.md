@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2021-07-04
+
+### Added
+
+- `debounce: (callback: Function, wait: number) => void` function
+- `update()` and `trigger()` are now debounced by 80ms ([#1](https://github.com/codewithkyle/supercomponent/issues/1))
+- `this.data` alias for `this.model`
+
+### Fixed
+
+- `Model` type override wouldn't apply to the `update()` methods `Parital<Model>` type ([#2](https://github.com/codewithkyle/supercomponent/issues/2))
+
 ## [1.0.0] - 2021-03-03
 
 ### Added
@@ -21,5 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - changelog
 - basic readme documentation
 
-[Unreleased]: https://github.com/codewithkyle/pubsub/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/codewithkyle/pubsub/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/codewithkyle/pubsub/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/codewithkyle/pubsub/releases/tag/v1.0.0
