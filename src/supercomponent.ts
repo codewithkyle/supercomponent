@@ -18,17 +18,29 @@ export default class SuperComponent<Model> extends HTMLElement {
         this.stateMachine = {};
     }
 
+    public debounce = (callback:Function, wait:number) => {
+        let timeoutId = null;
+        return (...args) => {
+            window.clearTimeout(timeoutId);
+            timeoutId = window.setTimeout(() => {
+                callback.apply(null, args);
+            }, wait);
+        };
+    }
+
+    private debounceRender = this.debounce(this.updated.bind(this), 80);
+    private debounceUpdate = this.debounce(this.render.bind(this), 80);
     public update(model) {
         this.model = Object.assign(this.model, model);
         this.data = this.model;
-        this.updated();
-        this.render();
+        this.debounceRender();
+        this.debounceUpdate();
     }
 
     public trigger(trigger:string){
         this.state = this.stateMachine?.[this.state]?.[trigger] ?? "ERROR";
-        this.updated();
-        this.render();
+        this.debounceRender();
+        this.debounceUpdate();
     }
 
     public render() {}

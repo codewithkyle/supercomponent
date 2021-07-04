@@ -1,6 +1,6 @@
 {
   "name": "@codewithkyle/supercomponent",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Give your Web Components modern-day superpowers.",
   "main": "supercomponent.js",
   "files": [

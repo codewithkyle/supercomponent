@@ -47,7 +47,7 @@ class Example extends SuperComponent<ExampleModel>{
             }
         }
 
-        // Set the initial model & trigger the first render
+        // Set the model & trigger the first render
         this.update({
             products: [],
         });
