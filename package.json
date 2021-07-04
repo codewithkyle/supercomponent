@@ -1,6 +1,6 @@
 {
   "name": "@codewithkyle/supercomponent",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Give your Web Components modern-day superpowers.",
   "main": "supercomponent.js",
   "files": [
@@ -10,7 +10,7 @@
     "supercomponent.min.mjs"
   ],
   "scripts": {
-    "build": "tsc && esbuild ./src/supercomponent.ts --outfile=supercomponent.min.js --format=iife --minify-whitespace --global-name=SuperComponent && esbuild ./src/supercomponent.ts --outfile=supercomponent.min.mjs --format=esm --minify && node ./build/bump.js && node ./build/tweak",
+    "build": "tsc && esbuild ./src/supercomponent.ts --outfile=supercomponent.min.js --format=iife --minify-whitespace --global-name=SuperComponent && esbuild ./src/supercomponent.ts --outfile=supercomponent.min.mjs --format=esm --minify && node ./build/tweak",
     "test": "serve ./test"
   },
   "author": "Kyle Andrews",

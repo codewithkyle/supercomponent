@@ -18,11 +18,11 @@ npm i -S @codewithkyle/supercomponent
 Install via CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@codewithkyle/supercomponent@1.0.0/supercomponent.min.js"></script>
+<script src="https://unpkg.com/@codewithkyle/supercomponent@1/supercomponent.min.js"></script>
 ```
 
 ```javascript
-import SuperComponent from "https://cdn.jsdelivr.net/npm/@codewithkyle/supercomponent@1.0.0/supercomponent.min.mjs";
+import SuperComponent from "https://unpkg.com/@codewithkyle/supercomponent@1/supercomponent.min.mjs";
 ```
 
 ## Usage
@@ -46,9 +46,11 @@ class Example extends SuperComponent<ExampleModel>{
                 TOGGLE: "LOADING",
             }
         }
-        this.model = {
+
+        // Set the initial model & trigger the first render
+        this.update({
             products: [],
-        };
+        });
     }
 
     async connected(){

@@ -5,6 +5,7 @@ type StateMachine = {
 };
 export default class SuperComponent<Model> extends HTMLElement {
     public model: Model;
+    public data: Model;
     public state: string;
     public stateMachine: StateMachine;
 
@@ -12,12 +13,14 @@ export default class SuperComponent<Model> extends HTMLElement {
         super();
         // @ts-ignore
         this.model = {};
+        this.data = this.model;
         this.state = "INACTIVE";
         this.stateMachine = {};
     }
 
-    public update(model: Partial<Model>) {
+    public update(model) {
         this.model = Object.assign(this.model, model);
+        this.data = this.model;
         this.updated();
         this.render();
     }

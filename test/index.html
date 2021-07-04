@@ -19,12 +19,12 @@
                         ERROR: "ERROR",
                     },
                     IDLING: {
-                        TOGGLE: "LOADING",
+                        LOAD: "LOADING",
                     }
-                }
-                this.model = {
-                    products: [],
                 };
+                this.update({
+                    products: [],
+                });
             }
 
             connected(){
@@ -38,6 +38,18 @@
                         this.trigger("ERROR");
                     }
                 }, 2000);
+            }
+
+            nextPage = async (e) => {
+                this.trigger("LOAD");
+                const request = await fetch("/products-2.json");
+                if (request.ok){
+                    const response = await request.json();
+                    this.update({ products: response });
+                    this.trigger("SUCCESS");
+                } else {
+                    this.trigger("ERROR");
+                }
             }
 
             render(){
@@ -56,6 +68,7 @@
                                     </div>
                                 `;
                             })}
+                            <button @click=${this.nextPage}>Next</button>
                         `;
                         break;
                     default:
