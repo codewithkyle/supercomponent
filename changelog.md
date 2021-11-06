@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2021-11-06
+
+### Added
+
+- `this.snapshot()` method creates a snapshot of the current state and model ([#4](https://github.com/codewithkyle/supercomponent/issues/4))
+- `skipRender` parameter (default `false`) to the `update()` method ([#3](https://github.com/codewithkyle/supercomponent/issues/3))
+
+### Fixed
+
+- fixed incorrect debounce logic
+
 ## [1.1.0] - 2021-07-04
 
 ### Added
@@ -33,6 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - changelog
 - basic readme documentation
 
-[Unreleased]: https://github.com/codewithkyle/supercomponent/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/codewithkyle/supercomponent/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/codewithkyle/supercomponent/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/codewithkyle/supercomponent/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/codewithkyle/supercomponent/releases/tag/v1.0.0

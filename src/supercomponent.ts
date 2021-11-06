@@ -1,21 +1,34 @@
-type StateMachine = {
+export type StateMachine = {
     [state:string]: {
         [trigger:string]: string;
     }
 };
+export type Snapshot = {
+    state: string,
+    model: any,
+}
 export default class SuperComponent<Model> extends HTMLElement {
     public model: Model;
     public data: Model;
     public state: string;
     public stateMachine: StateMachine;
 
-    constructor() {
+    constructor()
+    {
         super();
-        // @ts-ignore
-        this.model = {};
+        this.model = {} as Model;
         this.data = this.model;
         this.state = "INACTIVE";
         this.stateMachine = {};
+    }
+
+    public snapshot(): Snapshot
+    {
+        const snapshot: Snapshot = {
+            state: this.state,
+            model: {...this.model} as Model,
+        };
+        return snapshot;
     }
 
     public debounce = (callback:Function, wait:number) => {
@@ -28,16 +41,21 @@ export default class SuperComponent<Model> extends HTMLElement {
         };
     }
 
-    private debounceRender = this.debounce(this.updated.bind(this), 80);
-    private debounceUpdate = this.debounce(this.render.bind(this), 80);
-    public update(model) {
+    private debounceRender = this.debounce(this.render.bind(this), 80);
+    private debounceUpdate = this.debounce(this.updated.bind(this), 80);
+    public update(model:Partial<Model>, skipRender = false)
+    {
         this.model = Object.assign(this.model, model);
         this.data = this.model;
-        this.debounceRender();
+        if (!skipRender)
+        {
+            this.debounceRender();
+        }
         this.debounceUpdate();
     }
 
-    public trigger(trigger:string){
+    public trigger(trigger:string)
+    {
         this.state = this.stateMachine?.[this.state]?.[trigger] ?? "ERROR";
         this.debounceRender();
         this.debounceUpdate();
