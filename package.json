@@ -16,6 +16,7 @@
   "author": "Kyle Andrews",
   "license": "MIT",
   "devDependencies": {
+    "esbuild": "^0.13.13",
     "serve": "^11.3.2",
     "typescript": "^4.4.4"
   }
