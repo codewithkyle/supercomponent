@@ -13,8 +13,7 @@ export default class SuperComponent<Model> extends HTMLElement {
     public state: string;
     public stateMachine: StateMachine;
 
-    constructor()
-    {
+    constructor() {
         super();
         this.model = {} as Model;
         this.data = this.model;
@@ -26,7 +25,7 @@ export default class SuperComponent<Model> extends HTMLElement {
     {
         const snapshot: Snapshot = {
             state: this.state,
-            model: {...this.model} as Model,
+            model: this.get(),
         };
         return snapshot;
     }
@@ -43,7 +42,16 @@ export default class SuperComponent<Model> extends HTMLElement {
 
     private debounceRender = this.debounce(this.render.bind(this), 80);
     private debounceUpdate = this.debounce(this.updated.bind(this), 80);
-    public update(model:Partial<Model>, skipRender = false)
+    /**
+     * @deprecated Use `this.set()` instead. Will be removed in next major release.
+     */
+    public update(model:Partial<Model>, skipRender = false): void
+    {
+        // @ts-ignore
+        this.set(model, skipRender);
+    }
+
+    public set(model:Partial<Model>, skipRender = false): void
     {
         this.model = Object.assign(this.model, model);
         this.data = this.model;
@@ -54,23 +62,28 @@ export default class SuperComponent<Model> extends HTMLElement {
         this.debounceUpdate();
     }
 
-    public trigger(trigger:string)
+    public get(): Model
+    {
+        return {...this.model};
+    }
+
+    public trigger(trigger:string): void
     {
         this.state = this.stateMachine?.[this.state]?.[trigger] ?? "ERROR";
         this.debounceRender();
         this.debounceUpdate();
     }
 
-    public render() {}
+    public render(): void {}
 
-    public updated() {}
+    public updated(): void {}
 
-    public connected() {}
+    public connected(): void {}
     connectedCallback(){
         this.connected();
     }
 
-    public disconnected() {}
+    public disconnected(): void {}
     disconnectedCallback() {
         this.disconnected();
     }

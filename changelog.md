@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `set()` will be replacing `update()`
+- `get()` returns `{...this.model}`
+
+### Deprecated
+
+- `update()` method (use `set()` instead)
+
 ## [1.2.0] - 2021-11-06
 
 ### Added
