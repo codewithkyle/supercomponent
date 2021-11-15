@@ -11,12 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `set()` will be replacing `update()`
-- `get()` returns `{...this.model}`
+- `set()` will be replacing `update()` ([#5](https://github.com/codewithkyle/supercomponent/issues/5))
+- `get()` returns `{...this.model}` ([#5](https://github.com/codewithkyle/supercomponent/issues/5))
 
 ### Deprecated
 
-- `update()` method (use `set()` instead)
+- `update()` method (use `set()` instead) ([#5](https://github.com/codewithkyle/supercomponent/issues/5))
 
 ## [1.2.0] - 2021-11-06
 
