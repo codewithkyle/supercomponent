@@ -49,18 +49,18 @@ class Example extends SuperComponent<ExampleModel>{
         }
 
         // Set the model & trigger the first render
-        this.update({
+        this.set({
             products: [],
         });
     }
 
-    async connected(){
+    override async connected(){
         const request = await fetch("/products.json");
         if (request.ok){
             const response = await request.json();
 
-            // Updates the model -- accepts a ExampleModel or Partial<ExampleModel> object
-            this.update({ products: response });
+            // Updates the model
+            this.set({ products: response });
 
             // Trigger a state transition
             this.trigger("SUCCESS");
@@ -69,15 +69,15 @@ class Example extends SuperComponent<ExampleModel>{
         }
     }
 
-    disconnected() {
+    override disconnected() {
         // Do something when the component disconnects from the DOM
     }
 
-    updated(){
+    override updated() {
         // Do something after the model updates
     }
 
-    render(){
+    override render() {
         // Render this component model using whatever client-side UI framework you prefer
         switch (this.state){
             case "ERROR":
