@@ -9,16 +9,16 @@ export type Snapshot = {
 }
 export default class SuperComponent<Model> extends HTMLElement {
     public model: Model;
-    public data: Model;
     public state: string;
     public stateMachine: StateMachine;
+    private _scRenderTimeoutId: number | null;
 
     constructor() {
         super();
         this.model = {} as Model;
-        this.data = this.model;
         this.state = "INACTIVE";
         this.stateMachine = {};
+        this._scRenderTimeoutId = null;
     }
 
     public snapshot(): Snapshot
@@ -32,7 +32,7 @@ export default class SuperComponent<Model> extends HTMLElement {
 
     public debounce = (callback:Function, wait:number) => {
         let timeoutId = null;
-        return (...args) => {
+        return (...args:Array<any>) => {
             window.clearTimeout(timeoutId);
             timeoutId = window.setTimeout(() => {
                 callback.apply(null, args);
@@ -40,26 +40,22 @@ export default class SuperComponent<Model> extends HTMLElement {
         };
     }
 
-    private debounceRender = this.debounce(this.render.bind(this), 80);
-    private debounceUpdate = this.debounce(this.updated.bind(this), 80);
-    /**
-     * @deprecated Use `this.set()` instead. Will be removed in next major release.
-     */
-    public update(model:Partial<Model>, skipRender = false): void
+    private debounceRender()
     {
-        // @ts-ignore
-        this.set(model, skipRender);
+        if (this._scRenderTimeoutId)
+        {
+            window.cancelAnimationFrame(this._scRenderTimeoutId);
+        }
+        this._scRenderTimeoutId = window.requestAnimationFrame(this.render.bind(this));
     }
 
     public set(model:Partial<Model>, skipRender = false): void
     {
         this.model = Object.assign(this.model, model);
-        this.data = this.model;
         if (!skipRender)
         {
             this.debounceRender();
         }
-        this.debounceUpdate();
     }
 
     public get(): Model
@@ -71,20 +67,19 @@ export default class SuperComponent<Model> extends HTMLElement {
     {
         this.state = this.stateMachine?.[this.state]?.[trigger] ?? "ERROR";
         this.debounceRender();
-        this.debounceUpdate();
     }
 
-    public render(): void {}
-
-    public updated(): void {}
+    public render(returnMarkup = false): void {}
 
     public connected(): void {}
-    connectedCallback(){
+    connectedCallback()
+    {
         this.connected();
     }
 
     public disconnected(): void {}
-    disconnectedCallback() {
+    disconnectedCallback()
+    {
         this.disconnected();
     }
 }
