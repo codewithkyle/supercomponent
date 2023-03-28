@@ -19,11 +19,11 @@ npm i -S @codewithkyle/supercomponent
 Install via CDN
 
 ```html
-<script src="https://unpkg.com/@codewithkyle/supercomponent@1/supercomponent.min.js"></script>
+<script src="https://unpkg.com/@codewithkyle/supercomponent@2/supercomponent.min.js"></script>
 ```
 
 ```javascript
-import SuperComponent from "https://unpkg.com/@codewithkyle/supercomponent@1/supercomponent.min.mjs";
+import SuperComponent from "https://unpkg.com/@codewithkyle/supercomponent@2/supercomponent.min.mjs";
 ```
 
 ## Usage
@@ -73,23 +73,21 @@ class Example extends SuperComponent<ExampleModel>{
         // Do something when the component disconnects from the DOM
     }
 
-    override updated() {
-        // Do something after the model updates
-    }
-
-    override render() {
-        // Render this component model using whatever client-side UI framework you prefer
+    override render(returnMarkup = false) {
+        // Render this component model using any UI framework
         switch (this.state){
             case "ERROR":
                 // Render error message
                 break;
             case "IDLING":
-                // Render products
+                // Render this.model.products
                 break;
             default:
                 // Render loading animation
                 break;
         }
+        if (returnMarkup) return; // return UI framework markup
+        else // render markup
     }
 }
 customElements.define("example-component", Example);

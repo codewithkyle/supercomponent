@@ -1,6 +1,6 @@
 {
   "name": "@codewithkyle/supercomponent",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "Give your Web Components modern-day superpowers.",
   "main": "supercomponent.js",
   "files": [
@@ -16,8 +16,8 @@
   "author": "Kyle Andrews",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.13.13",
-    "serve": "^11.3.2",
+    "esbuild": "^0.16.12",
+    "serve": "^14.1.2",
     "typescript": "^4.4.4"
   }
 }
