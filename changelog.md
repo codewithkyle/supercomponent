@@ -7,10 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-
-- `returnMarkup` argument (default `false`) to the `render()` method ([#7](https://github.com/codewithkyle/supercomponent/issues/7))
-
 ### Changed
 
 - internal `render()` debounce logic changed from `setTimeout` to `requestAnimationFrame` ([#9](https://github.com/codewithkyle/supercomponent/issues/9))

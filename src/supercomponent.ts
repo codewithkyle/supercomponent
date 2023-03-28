@@ -69,7 +69,7 @@ export default class SuperComponent<Model> extends HTMLElement {
         this.debounceRender();
     }
 
-    public render(returnMarkup = false): void {}
+    public render(): void {}
 
     public connected(): void {}
     connectedCallback()
