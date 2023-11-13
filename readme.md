@@ -6,7 +6,7 @@ Give your Web Components modern-day superpowers:
 - manage your components state with an [xstate](https://github.com/davidkpiano/xstate) inspired state machine
 - bring your own client-side rendering framework/library such as [lit-html](https://lit-html.polymer-project.org/guide)
 - works in every major browser
-- lightweight (400 bytes)
+- lightweight (483 bytes)
 
 ## Installation
 
@@ -16,11 +16,7 @@ Install via NPM
 npm i -S @codewithkyle/supercomponent
 ```
 
-Install via CDN
-
-```html
-<script src="https://unpkg.com/@codewithkyle/supercomponent@2/supercomponent.min.js"></script>
-```
+Import via CDN
 
 ```javascript
 import SuperComponent from "https://unpkg.com/@codewithkyle/supercomponent@2/supercomponent.min.mjs";
@@ -86,8 +82,6 @@ class Example extends SuperComponent<ExampleModel>{
                 // Render loading animation
                 break;
         }
-        if (returnMarkup) return; // return UI framework markup
-        else // render markup
     }
 }
 customElements.define("example-component", Example);
